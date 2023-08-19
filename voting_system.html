@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="light.css">
+    <link id="dark-mode-css" rel="stylesheet" href="dark.css" disabled>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.0.2/web3.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Voting System</h1>
+        <h2 id="walletStatus">Please Connect Your Wallet</h2>
+      </header>
+      <main>
+        <button id="connectWallet">Connect Wallet</button>
+        <button id="disconnectWallet" style="display: none;">Disconnect Wallet</button>
+        <div class="theme-switch-wrapper">
+          <label id="theme-switch" class="theme-switch">
+            <div class="switch-track">
+              <div class="switch-handle"></div>
+            </div>
+            <div class="theme-label dark-mode-label">Dark Mode</div>
+            <div class="theme-label light-mode-label">Light Mode</div>
+          </label>
+        </div>
+        <div id="ownerPanel" class="panel">
+          <button id="startVoting">Start Voting</button>
+          <button id="endVoting">End Voting</button>
+          <button class="getWinner">Get Winner</button>
+          <button class="leaderboard">Leaderboard</button>
+          <button id="addCandidate">Add Candidate</button>
+          <button id="removeCandidate">Remove Candidate</button>
+          <button id="addWhitelisted">Add to Whitelist</button>
+          <button id="removeWhitelisted">Remove from Whitelist</button>
+          <button id="transferOwnership">Transfer Ownership</button>
+          <button class="checkCandidate">Check Candidate</button>
+          <button class="checkWhitelisted">Check Whitelisted</button>
+          <button id="removeAllCandidatesButton">Remove All Candidates</button>
+          <button id="removeAllWhitelistedButton">Remove All Whitelisted</button>
+          <div class="stats-container">
+            <div class="totalWhitelisted"></div>
+            <div class="votersInCurrentRound"></div>
+            <div class="votingPercentage"></div>
+          </div>
+        </div>
+        <div id="whitelistedPanel" class="panel">
+          <button id="vote">Vote</button>
+          <button class="getWinner">Get Winner</button>
+          <button class="leaderboard">Leaderboard</button>
+          <button class="checkCandidate">Check Candidate</button>
+          <button class="checkWhitelisted">Check Whitelisted</button>
+          <div class="stats-container">
+            <div class="totalWhitelisted"></div>
+            <div class="votersInCurrentRound"></div>
+            <div class="votingPercentage"></div>
+          </div>
+        </div>
+        <div id="publicPanel" class="panel">
+          <button class="checkCandidate">Check Candidate</button>
+          <button class="checkWhitelisted">Check Whitelisted</button>
+          <button class="getWinner">Get Winner</button>
+          <button class="leaderboard">Leaderboard</button>
+          <div class="stats-container">
+            <div class="totalWhitelisted"></div>
+            <div class="votersInCurrentRound"></div>
+            <div class="votingPercentage"></div>
+          </div>
+        </div>
+        <div id="votingStatus" class="votingStatus"></div>
+        <div id="notification" class="notification">
+          <p id="feedback"></p>
+        </div>
+        <div id="leaderboardModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="centered-title">Leaderboard</h2>
+            <div id="candidateList"></div>
+          </div>
+        </div>
+        <div id="winnerModal" class="modal">
+          <div class="modal-content-winners">
+            <span class="winnerClose">&times;</span>
+            <h2 class="centered-title" id="winner_title">Winner</h2>
+            <div class="winnerListContainer">
+              <ul id="winnerList">
+                <!-- List of winners will be dynamically added here -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

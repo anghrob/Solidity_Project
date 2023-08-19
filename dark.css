@@ -1,0 +1,258 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('darkgrey.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #ccc;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(10, 10, 10, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.centered-title {
+    text-align: center;
+    width: 100%;
+    color: #ccc;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #9CCC65;
+}
+
+header h2 {
+    font-size: 1.5em;
+    color: #bbb;
+    margin-top: -10px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+button {
+    background-color: #6b9b59;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-align: center;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #5e853f;
+}
+
+#disconnectWallet {
+    background-color: #8B0000;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-align: center;
+    font-size: 14px;
+    width: auto;
+    display: inline-block;
+}
+
+#disconnectWallet:hover {
+    background-color: #A80000;
+    transition: background-color 0.25s ease-in-out;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.panel {
+    display: none;
+    animation: fadeIn 1s;
+    grid-column: span 2;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    color: #ccc;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 40%;
+    overflow: auto;
+}
+
+.close {
+    color: #999;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.winnerClose {
+    color: #999;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.winnerClose:hover,
+.winnerClose:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.notification {
+    visibility: hidden;
+    width: 200px;
+    background-color: #6b9b59;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    top: 80px;
+    font-size: 17px;
+    transition: visibility 0s, opacity 0.6s linear;
+    transform: translateX(100%);
+}
+
+.notification.show {
+    visibility: visible;
+    -webkit-animation: notifFadein 0.5s, notifFadeout 0.5s 2.5s;
+    animation: notifFadein 0.5s, notifFadeout 0.5s 2.5s;
+    animation-fill-mode: forwards;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ccc;
+}
+
+th, td {
+    border: 1px solid #444;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #1f1f1f;
+}
+
+.votingStatus {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #6b9b59;
+}
+
+.stats-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 20px;
+    background: rgba(10, 10, 10, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: #9CCC65;
+    font-size: 18px;
+    line-height: 1.5;
+    z-index: 1000;
+    width: auto;
+    max-width: 300px;
+}
+
+.modal-content-winners {
+    background-color: #1a1a1a;
+    color: #ccc;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 40%;
+    overflow: auto;
+}
+
+.winnerListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#winnerList {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#winnerList li {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #444;
+    background-color: #1f1f1f;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+#winnerList li:hover {
+    background-color: #333;
+}
